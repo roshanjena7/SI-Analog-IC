@@ -82,3 +82,19 @@ Impedance matching for the amplifier input
 Ensuring minimal signal loss at the interface
 <img width="1423" height="788" alt="image" src="https://github.com/user-attachments/assets/81202ccf-e212-4793-ba17-70e04650f6ab" />
 
+#📷 This schematic shows the practical implementation of the Thevenin model using Xschem.
+📈 Output Response of the Microphone Circuit
+The simulation below shows the voltage output (vout) across the load, after signal amplification and filtering.
+<img width="1415" height="708" alt="image" src="https://github.com/user-attachments/assets/f069a4e0-4d5d-4cc6-a12c-57d0771c7b3b" />
+🧪 This waveform helps verify if the designed circuit properly amplifies the mic signal within expected voltage ranges.
+
+# 📈 Frequency Response
+The frequency response reveals the bandwidth and filtering effects of the analog stage.
+<img width="1600" height="659" alt="image" src="https://github.com/user-attachments/assets/2d9a4181-3e14-455c-91d0-37dd816d6da5" />
+# 🔁 Simulink Output
+The Simulink simulation confirms system-level behavior and time-domain signal dynamics.
+<img width="488" height="347" alt="image" src="https://github.com/user-attachments/assets/274a0bf0-9129-4b2a-b3eb-c849e161fa66" />
+
+
+
+
