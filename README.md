@@ -94,6 +94,36 @@ The frequency response reveals the bandwidth and filtering effects of the analog
 # 🔁 Simulink Output
 The Simulink simulation confirms system-level behavior and time-domain signal dynamics.
 <img width="488" height="347" alt="image" src="https://github.com/user-attachments/assets/274a0bf0-9129-4b2a-b3eb-c849e161fa66" />
+# 🔧 Op-Amp Modeling as a Single Pole System
+To better analyze the frequency response of the analog front-end, the operational amplifier is modeled using a single-pole transfer function. This provides insight into the bandwidth limitations and phase behavior of the amplifier.
+<img width="1606" height="780" alt="image" src="https://github.com/user-attachments/assets/14731e97-49ab-4562-9b23-36c68a34540b" />
+
+# 🔁 Simulink Output
+The Simulink simulation confirms system-level behavior and time-domain signal dynamics.
+<img width="493" height="350" alt="image" src="https://github.com/user-attachments/assets/c66fe622-1592-4a00-9310-c230cc35af84" />
+# High-Pass Filter Circuit
+This section explains the working and transfer function of a high-pass filter using an op-amp.
+
+<img width="1080" height="630" alt="image" src="https://github.com/user-attachments/assets/578df93a-e611-41e1-8ac1-25a1a6fce51f" />
+# 🧰 Circuit Overview
+Input Capacitor C_i = 4.7μF: Blocks DC
+Resistors R_i = R_f = 5kΩ: Define gain and cutoff
+Op-Amp in non-inverting configuration
+# 🧮 S-Domain Transfer Function
+H(s) = (Rf * s * Ci) / (1 + s * Ri * Ci)
+
+At low frequencies → H(s) → 0 (attenuates low freq)
+At high frequencies → H(s) → 1 (passes high freq)
+#🔻 Cutoff Frequency (fc)
+fc = 1 / (2πRiCi) ≈ 6.77 Hz For Ri = 5kΩ, Ci = 4.7μF
+🖼️ Op-Amp Schematic Diagram
+Detailed internal schematic of the operational amplifier:
+<img width="941" height="451" alt="image" src="https://github.com/user-attachments/assets/624d635c-72ae-419f-ab59-22e61da2d1e0" />
+
+
+
+
+
 
 
 
