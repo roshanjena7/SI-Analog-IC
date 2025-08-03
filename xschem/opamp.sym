@@ -1,0 +1,90 @@
+v {xschem version=3.4.8RC file_version=1.2}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=opa_mod1
+
+}
+V {}
+S {}
+E {}
+L 4 50 80 50 160 {}
+L 4 50 160 140 130 {}
+L 4 50 80 140 130 {}
+L 7 140 130 160 130 {}
+L 7 30 110 50 110 {}
+L 7 30 130 50 130 {}
+L 7 110 140 110 160 {}
+B 5 157.5 127.5 162.5 132.5 {name=vop dir=inout}
+B 5 27.5 107.5 32.5 112.5 {name=vin dir=inout}
+B 5 27.5 127.5 32.5 132.5 {name=vim dir=inout}
+B 5 107.5 157.5 112.5 162.5 {name=vom dir=inout}
+T {vop} 195 126 0 1 0.2 0.2 {}
+T {vin} 65 106 0 1 0.2 0.2 {}
+T {vim} 75 126 0 1 0.2 0.2 {}
+T {vom} 125 166 0 1 0.2 0.2 {}
+N -160 110 -100 110 {lab=#net1}
+N -40 110 30 110 {lab=#net2}
+N -290 110 -220 110 {lab=vin}
+N -290 110 -290 180 {lab=vin}
+N -290 240 -290 260 {lab=GND}
+N -290 260 120 260 {lab=GND}
+N -0 180 30 130 {lab=#net3}
+N 0 240 0 260 {lab=GND}
+N 110 160 120 260 {lab=GND}
+N 250 20 290 20 {lab=vout}
+N 290 20 290 140 {lab=vout}
+N -0 20 190 20 {lab=#net2}
+N -0 20 0 110 {lab=#net2}
+N 290 140 340 140 {lab=vout}
+N -290 230 -290 240 {lab=GND}
+N 160 140 290 140 {lab=vout}
+N 160 130 160 140 {lab=vout}
+C {res.sym} -70 110 1 0 {name=R1
+value=5k
+footprint=1206
+device=resistor
+m=1}
+C {capa.sym} -190 110 1 0 {name=C1
+m=1
+value=4.7u
+footprint=1206
+device="ceramic capacitor"}
+C {vsource.sym} -290 200 0 0 {name=V1 value=" 0 AC 1" savecurrent=false}
+C {vsource.sym} 0 210 0 0 {name=V2 value=1.5 savecurrent=false}
+C {res.sym} 220 20 1 0 {name=R2
+value=5k
+footprint=1206
+device=resistor
+m=1}
+C {gnd.sym} -290 260 0 0 {name=l1 lab=GND}
+C {lab_wire.sym} 340 140 2 0 {name=p1 sig_type=std_logic lab=vout}
+C {lab_wire.sym} -290 110 0 0 {name=p2 sig_type=std_logic lab=vin}
+C {simulator_commands_shown.sym} 450 60 0 0 {name=COMMANDS
+simulator=ngspice
+only_toplevel=false 
+value="
+.control
+op
+save all
+set appendweite
+AC DEC 100 1 10e6
+write miCTest.raw
+
+MEAS AC gain_db MAX vdb(vout) FROM=1 TO=10e6
+LET vm3db = gain_db3.0
+print vm3db
+MEAS AC fzero WHEN vdb(vout)=vm3db RISE=1
+MEAS AC fpole WHEN vdb(vout)=vm3db FALL=1
+MEAS AC fmid WHEN vdb(vout)=gain_db
+**Phase Measurment
+LET phase_deg = cph(vout)*180/PI
+MEAS AC phase_zero FIND phase_deg AT=fzero
+MEAS AC phase_pole FIND phase_deg AT=fpole
+MEAS AC phase_mid FIND phase_deg AT=fmid
+**MEAS fzero and fpole using phase
+LET phase_zero_ph = phase_mid-45
+MEAS AC fzero_ph WHEN phase_deg=phase_zero_ph
+
+.endc
+"}

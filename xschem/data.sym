@@ -1,0 +1,138 @@
+v {xschem version=3.4.8RC file_version=1.2}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+T {ib5u} 24 175 1 1 0.2 0.2 {}
+T {vip} -55 256 0 1 0.2 0.2 {}
+T {vim} -65 196 0 1 0.2 0.2 {}
+T {AVDD} -6 145 1 1 0.2 0.2 {}
+N 180 380 180 430 {lab=GND}
+N 10 0 10 160 {lab=ib5u}
+N -210 -110 -10 -110 {lab=ib5u}
+N -210 -110 -210 -70 {lab=ib5u}
+N -210 -10 -210 30 {lab=GND}
+N -560 300 -530 300 {lab=#net1}
+N -560 340 -530 340 {lab=GND}
+N -560 340 -560 390 {lab=GND}
+N -560 390 -380 390 {lab=GND}
+N -380 340 -380 390 {lab=GND}
+N -380 340 -330 340 {lab=GND}
+N -560 390 -560 410 {lab=GND}
+N -630 250 -630 390 {lab=#net1}
+N -490 180 -490 290 {lab=vim}
+N -490 180 -230 180 {lab=vim}
+N -230 180 -230 200 {lab=vim}
+N -230 200 -60 200 {lab=vim}
+N 20 310 20 330 {lab=GND}
+N 180 250 180 320 {lab=vout}
+N 160 250 180 250 {lab=vout}
+N -10 -110 70 -110 {lab=ib5u}
+N 70 -110 70 -50 {lab=ib5u}
+N 70 10 70 170 {lab=#net2}
+N 50 170 70 170 {lab=#net2}
+N 50 170 50 180 {lab=#net2}
+N 10 -110 10 -0 {lab=ib5u}
+N -560 250 -560 300 {lab=#net1}
+N -290 270 -290 290 {lab=vip}
+N -290 270 -60 270 {lab=vip}
+N -630 250 -420 250 {lab=#net1}
+N -420 250 -420 300 {lab=#net1}
+N -420 300 -330 300 {lab=#net1}
+N -490 350 -490 420 {lab=#net3}
+N -490 420 -380 420 {lab=#net3}
+N -380 420 -380 450 {lab=#net3}
+N -380 420 -290 420 {lab=#net3}
+N -290 350 -290 420 {lab=#net3}
+C {capa.sym} 180 350 0 0 {name=C1
+m=1
+value=10f
+footprint=1206
+device="ceramic capacitor"}
+C {gnd.sym} 180 430 0 0 {name=l1 lab=GND}
+C {gnd.sym} 20 330 0 0 {name=l2 lab=GND}
+C {isource.sym} 70 -20 0 0 {name=I0 value=1m}
+C {vsource.sym} -210 -40 0 0 {name=V1 value=1.8 savecurrent=false}
+C {gnd.sym} -210 30 0 0 {name=l3 lab=GND}
+C {vcvs.sym} -490 320 0 0 {name=E1 value=0.5}
+C {vcvs.sym} -290 320 0 0 {name=E2 value=0.5}
+C {gnd.sym} -380 510 0 0 {name=l4 lab=GND}
+C {gnd.sym} -560 410 0 0 {name=l5 lab=GND}
+C {vsource.sym} -630 420 0 0 {name=V3 value=0 savecurrent=false}
+C {gnd.sym} -630 450 0 0 {name=l6 lab=GND}
+C {devices/code.sym} -1230 720 0 0 {name=TT_MODELS1
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+"
+spice_ignore=false}
+C {simulator_commands_shown.sym} -1340 -360 0 0 {name=COMMANDS
+simulator=ngspice
+only_toplevel=false 
+value="
+* ngspice commands
+.temp 27
+.control
+	save all
+
+	* Save currents and gms
+	save @m.x1.xm1.msky130_fd_pr__nfet_01v8[id]
+	save @m.x1.xmtail.msky130_fd_pr__nfet_01v8[id]
+	save @m.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
+	save @m.x1.xmtail.msky130_fd_pr__nfet_01v8[gm]
+
+	save @m.x1.xm5.msky130_fd_pr__pfet_01v8_lvt[id]
+	save @m.x1.xm5.msky130_fd_pr__pfet_01v8_lvt[gm]
+	save @m.x1.xm11.msky130_fd_pr__pfet_01v8_lvt[id]
+	save @m.x1.xm11.msky130_fd_pr__pfet_01v8_lvt[gm]
+
+	save @m.x1.xm4.msky130_fd_pr__nfet_01v8_lvt[id]
+	save @m.x1.xm3.msky130_fd_pr__nfet_01v8_lvt[id]
+	save @m.x1.xm4.msky130_fd_pr__nfet_01v8_lvt[gm]
+	save @m.x1.xm3.msky130_fd_pr__nfet_01v8_lvt[gm]
+
+	OP
+	write opamtest.raw
+
+	let m1id     = @m.x1.xm1.msky130_fd_pr__nfet_01v8[id]
+	let mtailid  = @m.x1.xmtail.msky130_fd_pr__nfet_01v8[id]
+	let m1gm     = @m.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
+	let mtailgm  = @m.x1.xmtail.msky130_fd_pr__nfet_01v8[gm]
+
+	let m5id     = @m.x1.xm5.msky130_fd_pr__pfet_01v8_lvt[id]
+	let m5gm     = @m.x1.xm5.msky130_fd_pr__pfet_01v8_lvt[gm]
+	let m11id    = @m.x1.xm11.msky130_fd_pr__pfet_01v8_lvt[id]
+	let m11gm    = @m.x1.xm11.msky130_fd_pr__pfet_01v8_lvt[gm]
+
+	let m4id     = @m.x1.xm4.msky130_fd_pr__nfet_01v8_lvt[id]
+	let m4gm     = @m.x1.xm4.msky130_fd_pr__nfet_01v8_lvt[gm]
+	let m3id     = @m.x1.xm3.msky130_fd_pr__nfet_01v8_lvt[id]
+	let m3gm     = @m.x1.xm3.msky130_fd_pr__nfet_01v8_lvt[gm]
+
+	let m1gmid    = m1gm / m1id
+	let mtailgmid = mtailgm / mtailid
+	let m5gmid    = m5gm / m5id
+	let m11gmid   = m11gm / m11id
+	let m4gmid    = m4gm / m4id
+	let m3gmid    = m3gm / m3id
+
+	print m1gmid
+	print mtailgmid
+	print m5gmid
+	print m11gmid
+	print m4gmid
+	print m3gmid
+.endc
+"}
+C {lab_wire.sym} -180 270 0 0 {name=p1 sig_type=std_logic lab=vip}
+C {lab_wire.sym} -180 200 0 0 {name=p2 sig_type=std_logic lab=vim}
+C {lab_wire.sym} 180 290 0 0 {name=p3 sig_type=std_logic lab=vout}
+C {lab_wire.sym} 10 80 1 0 {name=p4 sig_type=std_logic lab=ib5u}
+C {ros.sym} 0 -10 0 0 {name=x1}
+C {vsource.sym} -380 480 0 0 {name=V2 value=3 savecurrent=false}

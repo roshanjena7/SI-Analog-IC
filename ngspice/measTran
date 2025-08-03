@@ -1,0 +1,17 @@
+Title: transient experiment:rise, fall, delay, period, etc.
+
+** RC Network
+R1     vin      vout       1k
+C1     vout     GND        1p
+
+**stimuli
+Vsin   vin      GND        0 PULSE(0 5 1n 1p 1p 10n 20n)
+
+.CONTROL
+OP
+TRAN 10p 40n
+.ENDC
+
+.GLOBAL GND
+
+
