@@ -107,18 +107,32 @@ This section explains the working and transfer function of a high-pass filter us
 <img width="1080" height="630" alt="image" src="https://github.com/user-attachments/assets/578df93a-e611-41e1-8ac1-25a1a6fce51f" />
 # 🧰 Circuit Overview
 Input Capacitor C_i = 4.7μF: Blocks DC
+
 Resistors R_i = R_f = 5kΩ: Define gain and cutoff
+
 Op-Amp in non-inverting configuration
+
 # 🧮 S-Domain Transfer Function
+
 H(s) = (Rf * s * Ci) / (1 + s * Ri * Ci)
 
 At low frequencies → H(s) → 0 (attenuates low freq)
+
 At high frequencies → H(s) → 1 (passes high freq)
+
 #🔻 Cutoff Frequency (fc)
+
 fc = 1 / (2πRiCi) ≈ 6.77 Hz For Ri = 5kΩ, Ci = 4.7μF
+
 🖼️ Op-Amp Schematic Diagram
+
 Detailed internal schematic of the operational amplifier:
+
 <img width="941" height="451" alt="image" src="https://github.com/user-attachments/assets/624d635c-72ae-419f-ab59-22e61da2d1e0" />
+ # Op-Amp Symbolic Diagram
+Standard symbolic representation of an operational amplifier:
+<img width="1015" height="667" alt="image" src="https://github.com/user-attachments/assets/b5baee05-da16-43df-83ac-d7c559f10433" />
+
 
 
 
