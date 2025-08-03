@@ -190,7 +190,24 @@ Learned to interpret raw Ngspice waveforms for device-level analysis.
 # 6. NFET Characterization
 To analyze the DC characteristics of an NMOS transistor using Ngspice simulations run from Xschem, including current behavior in linear, saturation, and subthreshold regions.
 <img width="1911" height="1024" alt="image" src="https://github.com/user-attachments/assets/6056a6c1-7c39-43ce-9865-d039356e73cd" />
+📈 Results Interpreted from Plots:
 
+|IDS| vs VDS (bottom-left):
+Shows typical drain current response.
+
+Confirms triode → saturation transition as VDS increases.
+
+Higher VGS yields higher ID, validating channel modulation.
+
+√(2|IDS|) vs VDS (top-center):
+Exhibits linearity in saturation region.
+
+Used to verify square-law behavior of NMOS and extract K′ or mobility parameters.
+
+log(|IDS|) vs VDS (bottom-center):
+Emphasizes subthreshold conduction at low VDS and VGS.
+
+Confirms exponential behavior of drain current in subthreshold region.
 
 
 
