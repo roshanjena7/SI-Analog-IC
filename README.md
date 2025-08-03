@@ -132,11 +132,13 @@ Detailed internal schematic of the operational amplifier:
  ## Op-Amp Symbolic Diagram
 Standard symbolic representation of an operational amplifier:
 <img width="1015" height="667" alt="image" src="https://github.com/user-attachments/assets/b5baee05-da16-43df-83ac-d7c559f10433" />
-# 📐 High-Pass Filter Circuit Using the Op-Amp
+# High-Pass Filter Circuit Using the Op-Amp
 High-pass filter circuit built using the op-amp symbol shown above:
 <img width="791" height="621" alt="image" src="https://github.com/user-attachments/assets/00a84c2f-e398-4dca-aa5a-52c7a2e8897c" />
-#📈 Frequency Response Plot of the High-Pass Filter
+# Frequency Response Plot of the High-Pass Filter
 The plot below shows the frequency response (gain vs frequency) of the high-pass filter circuit.
+<img width="1411" height="508" alt="image" src="https://github.com/user-attachments/assets/5af303ba-f07d-4213-b102-922f568e4025" />
+
 
 
 
