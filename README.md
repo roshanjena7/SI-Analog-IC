@@ -120,7 +120,7 @@ At low frequencies → H(s) → 0 (attenuates low freq)
 
 At high frequencies → H(s) → 1 (passes high freq)
 
-#🔻 Cutoff Frequency (fc)
+🔻 Cutoff Frequency (fc)
 
 fc = 1 / (2πRiCi) ≈ 6.77 Hz For Ri = 5kΩ, Ci = 4.7μF
 
@@ -129,9 +129,15 @@ fc = 1 / (2πRiCi) ≈ 6.77 Hz For Ri = 5kΩ, Ci = 4.7μF
 Detailed internal schematic of the operational amplifier:
 
 <img width="941" height="451" alt="image" src="https://github.com/user-attachments/assets/624d635c-72ae-419f-ab59-22e61da2d1e0" />
- # Op-Amp Symbolic Diagram
+ ## Op-Amp Symbolic Diagram
 Standard symbolic representation of an operational amplifier:
 <img width="1015" height="667" alt="image" src="https://github.com/user-attachments/assets/b5baee05-da16-43df-83ac-d7c559f10433" />
+# 📐 High-Pass Filter Circuit Using the Op-Amp
+High-pass filter circuit built using the op-amp symbol shown above:
+<img width="791" height="621" alt="image" src="https://github.com/user-attachments/assets/00a84c2f-e398-4dca-aa5a-52c7a2e8897c" />
+#📈 Frequency Response Plot of the High-Pass Filter
+The plot below shows the frequency response (gain vs frequency) of the high-pass filter circuit.
+
 
 
 
