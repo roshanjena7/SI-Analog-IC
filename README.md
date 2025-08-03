@@ -159,9 +159,38 @@ Converts drawn layouts into functional circuits using SPICE backend.
 The circuit is used to copy the flow of current in one active device and controlling the flow of current in another device by maintaining the output current stable instead of loading
 <img width="931" height="394" alt="image" src="https://github.com/user-attachments/assets/3db68555-8194-4b06-bf8d-b6bb49a2da89" />
 
-#5. FET Characterization
+# 5. FET Characterization
 To characterize the I-V behavior of an n-channel MOSFET (FET) by running a DC sweep analysis using Ngspice through an Xschem-based setup.
 <img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/9af4a68c-4bdb-4cf7-9c01-48a8d6420530" />
+# 📊 Simulation Outputs: Three key plots are generated:
+
+|IDS| vs VDS (bottom-right):
+Shows the drain current increasing non-linearly with VDS and higher VGS.
+
+Confirms saturation region behavior at higher VDS.
+
+√(2|IDS|) vs VDS (bottom-left):
+Linear region curve used to extract transconductance (gm) and validate square-law model in saturation.
+
+log(|IDS|) vs VDS (top-left):
+Highlights exponential characteristics at low VDS.
+
+Useful for identifying subthreshold operation region.
+
+# ✅ Outcome / Learning:
+Verified three modes of operation: cutoff, triode, and saturation.
+
+Visualized how VGS modulates drain current.
+
+Confirmed square-law relationship in saturation (linear √ID vs VGS).
+
+Demonstrated log-linear behavior in subthreshold region.
+
+Learned to interpret raw Ngspice waveforms for device-level analysis.
+# 6. NFET Characterization
+To analyze the DC characteristics of an NMOS transistor using Ngspice simulations run from Xschem, including current behavior in linear, saturation, and subthreshold regions.
+<img width="1911" height="1024" alt="image" src="https://github.com/user-attachments/assets/6056a6c1-7c39-43ce-9865-d039356e73cd" />
+
 
 
 
