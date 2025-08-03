@@ -151,6 +151,18 @@ The plot below shows the frequency response (gain vs frequency) of the high-pass
 # 🔁 Simulink Output of the High-Pass Filter
 simulink output from the Simulink simulation of the high-pass filter circuit.
 <img width="497" height="340" alt="image" src="https://github.com/user-attachments/assets/d7851448-f615-4bba-8a11-869b8d366d1b" />
+# 3. Siliwiz Simulation
+Converts drawn layouts into functional circuits using SPICE backend.
+<img width="966" height="462" alt="image" src="https://github.com/user-attachments/assets/dec849a5-4258-4c7b-b771-ae79f26e1767" />
+
+# 4. Current Mirror
+The circuit is used to copy the flow of current in one active device and controlling the flow of current in another device by maintaining the output current stable instead of loading
+<img width="931" height="394" alt="image" src="https://github.com/user-attachments/assets/3db68555-8194-4b06-bf8d-b6bb49a2da89" />
+
+#5. FET Characterization
+To characterize the I-V behavior of an n-channel MOSFET (FET) by running a DC sweep analysis using Ngspice through an Xschem-based setup.
+<img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/9af4a68c-4bdb-4cf7-9c01-48a8d6420530" />
+
 
 
 
